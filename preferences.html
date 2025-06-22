@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Memory Game - Preferences</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<section class="Settings">
+  <h2>Player Preferences</h2>
+
+  <form id="preferences-form">
+    <!-- Email Section -->
+    <div class="form-group">
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" required>
+    </div>
+
+    <!-- Game Preferences -->
+    <div class="form-group">
+      <label for="theme">Card Theme:</label>
+      <select id="theme">
+        <option value="harrypotter">Harry Potter</option>
+        <option value="pokemon">Pokemon</option>
+        <option value="cats">Cats</option>
+        <option value="random">Random</option>
+      </select>
+    </div>
+
+    <div class="color-picker-group">
+      <div class="form-group">
+        <label for="matchedColor">Matched Cards Color:</label>
+        <div class="color-picker">
+          <input type="color" id="matchedColor">
+          <div class="color-preview" id="matchedColorPreview"></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="unmatchedColor">Unmatched Cards Color:</label>
+        <div class="color-picker">
+          <input type="color" id="unmatchedColor">
+          <div class="color-preview" id="unmatchedColorPreview"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="save-btn">Save Preferences</button>
+      <button type="button" class="cancel-btn" onclick="window.location.href='index.html'">Cancel</button>
+    </div>
+  </form>
+</section>
+
+<script src="js/auth.js"></script>
+<script type="module" src="js/prefrences.js"></script>

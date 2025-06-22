@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<section class="Settings">
+  <h2>Login</h2>
+  <form id="login-form">
+    <label for="username">Username:</label>
+    <input type="text" id="username" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" required>
+
+    <button type="submit">Login</button>
+  </form>
+  <p>Don't have an account? <a href="register.html">Register here</a></p>
+</section>
+
+<script src="js/auth.js"></script>
+<script>
+  document.getElementById('login-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    try {
+      await login(username, password);
+      alert('Login successful!');
+      window.location.href = 'index.html';
+    } catch (error) {
+      alert(error.message);
+    }
+  });
+</script>
+</body>
+</html>

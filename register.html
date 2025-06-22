@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <title>Register</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<section class="Settings">
+  <h2>Register</h2>
+  <form id="register-form">
+    <label for="username">Username:</label>
+    <input type="text" id="username" required>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" required>
+
+    <button type="submit">Register</button>
+  </form>
+  <p>Already have an account? <a href="login.html">Login here</a></p>
+</section>
+
+<script src="js/auth.js"></script>
+<script>
+  document.getElementById('register-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    try {
+      const result = await register(username, email, password);
+      if (result.status === 201) {
+        alert('Registration successful! Please login.');
+        window.location.href = 'login.html';
+      }
+    } catch (error) {
+      alert(error.message);
+      console.error('Registration error:', error);
+    }
+  });
+</script>
+</body>
+</html>

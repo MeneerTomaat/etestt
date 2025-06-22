@@ -1,0 +1,95 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Memory</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+  <meta property="og:image:alt" content="">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#fafafa">
+</head>
+<script type="module" src="js/app.js"></script>
+<body>
+
+<section class="game">
+  <div class="status" aria-label="spel-status">
+    <p>Verlopen tijd: <span id="elapsed">0</span> seconden</p>
+    <p>Gevonden kaart-paren: <span id ="pairs">1</span></p>
+    <p>Resterende tijd: <span id="remaining">120</span> seconden</p>
+    <div class="timer-bar" aria-hidden="true">
+      <div class="timer-bar-fill"></div>
+    </div>
+  </div>
+
+  <div class="board" aria-label="spel-bord" id="game-board">
+    <!-- Cards will be generated here by JavaScript -->
+  </div>
+
+</section>
+<div class="sidebar">
+<section class="Settings">
+  <label for="grid-size">Grid Size:</label>
+  <select id="grid-size">
+    <option value="2x2">2x2 (4 cards)</option>
+    <option value="3x3">3x3 (9 cards)</option>
+    <option value="4x4" selected>4x4 (16 cards)</option>
+    <option value="5x5">5x5 (25 cards)</option>
+    <option value="6x6" class ="desktop-only">6x6 (36 cards)</option>
+  </select>
+  <label for="image-theme">Afbeelding Thema:</label>
+  <select id="image-theme">
+    <option value="harrypotter" selected>Harry Potter</option>
+    <option value="pokemon">Pokemon</option>
+    <option value="cats">Katten</option>
+    <option value="random">Willekeurig</option>
+  </select>
+  <button onclick="generateGrid()" id="new game">New Game</button>
+</section>
+  <!-- Add this section right after your Settings section but before the leaderboard -->
+  <section class="Settings">
+    <h2>Account</h2>
+    <div class="auth-container">
+      <div class="auth-buttons" id="auth-buttons">
+        <button onclick="window.location.href='login.html'" class="auth-btn login-btn">
+          Login
+        </button>
+        <button onclick="window.location.href='register.html'" class="auth-btn register-btn">
+          Register
+        </button>
+      </div>
+      <div class="auth-actions" id="auth-actions">
+        <button id="preferences-btn" class="preferences-btn">Preferences</button>
+        <button id="logout-btn" class="logout-btn">Logout</button>
+      </div>
+    </div>
+  </section>
+<section class="leaderboard">
+  <div class="leaderboard-list">
+    <h2 id="top5">Leaderboard</h2>
+    <ol id="top5-list">
+      <!-- Placeholder for top 5 players -->
+      <li data-player="Alice" data-score="250"></li>
+      <li data-player="Bob" data-score="500"></li>
+    </ol>
+    <p>Gemiddelde speeltijd</p>
+  </div>
+</section>
+</div>
+
+
+</body>
+
+
+</html>
