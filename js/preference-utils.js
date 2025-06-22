@@ -1,5 +1,5 @@
 // preferences-utils.js
-const BASE_API_URL = 'http://localhost:8080';
+const BASE_API_URL = 'http://localhost:8000';
 
 // Utility functions for managing preferences
 const Preferences = {

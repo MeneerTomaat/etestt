@@ -1,7 +1,7 @@
 // app.js
 import { Preferences } from './preference-utils.js';
 
-const BASE_API_URL = 'http://localhost:8080'; // Add this at the top
+const BASE_API_URL = 'http://localhost:8000'; // Add this at the top
 
 // Global variables
 let gameImages = [];
