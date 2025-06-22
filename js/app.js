@@ -65,7 +65,7 @@ function updateScore(playerName, newScore) {
 // API Functions
 async function fetchLeaderboard() {
   try {
-    const response = await fetch(`${BASE_API_URL}/leaderboard`);
+    const response = await fetch(`${BASE_API_URL}/memory/top-scores`);
     if (response.status === 200) {
       const leaderboard = await response.json();
       updateLeaderboard(leaderboard);
@@ -96,13 +96,16 @@ async function endGame(won) {
   if (won) {
     alert(`Congratulations! You won in ${elapsedTime} seconds!`);
     try {
-      const response = await fetch(`${BASE_API_URL}/scores`, {
+      const response = await fetch(`${BASE_API_URL}/game/save`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${localStorage.getItem('jwt_token')}`
         },
-        body: JSON.stringify({ score: elapsedTime }),
+        body: JSON.stringify({
+          id: '1', // You'll need to provide this
+          score: elapsedTime
+        }),
       });
 
       if (response.status === 200) {
